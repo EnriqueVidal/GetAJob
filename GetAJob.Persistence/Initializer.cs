@@ -14,7 +14,7 @@ namespace GetAJob.Persistence
         {
             Configuration config = new Configuration();
             config.Configure();
-            config.AddAssembly("InfoCenter.Persistence");
+            config.AddAssembly("GetAJob.Persistence");
 
             if (isNeedRecreateScheme)
             {
@@ -22,7 +22,7 @@ namespace GetAJob.Persistence
                 se.Execute(true, true, false);
             }
 
-            return config.BuildSessionFactory();          
+            return config.BuildSessionFactory();
         }
     }
 }
