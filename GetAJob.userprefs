@@ -1,18 +1,15 @@
 ﻿<Properties>
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="GetAJobPersistence/Core/Repository.cs">
-    <Files>
-      <File FileName="GetAJobPersistence/Core/IRepository.cs" Line="27" Column="46" />
-      <File FileName="GetAJobPersistence/Core/Repository.cs" Line="35" Column="1" />
-    </Files>
+  <MonoDevelop.Ide.Workbench>
     <Pads>
       <Pad Id="ProjectPad">
         <State expanded="True">
-          <Node name="GetAJob" expanded="True" />
-          <Node name="GetAJobPersistence" expanded="True">
-            <Node name="Core" expanded="True">
-              <Node name="Repository.cs" selected="True" />
-            </Node>
+          <Node name="GetAJob" expanded="True">
+            <Node name="Controllers" expanded="True" />
+            <Node name="Global.asax" expanded="True" />
+          </Node>
+          <Node name="GetAJob.Persistence" expanded="True">
+            <Node name="Initializer.cs" selected="True" />
           </Node>
         </State>
       </Pad>
