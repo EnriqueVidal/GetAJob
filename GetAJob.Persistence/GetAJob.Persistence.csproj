@@ -30,7 +30,6 @@
     <ConsolePause>false</ConsolePause>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="System" />
     <Reference Include="Antlr3.Runtime, Version=3.1.0.39271, Culture=neutral, PublicKeyToken=3a9cab8f8d22bfb7">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\..\fluentnhibernate-1.1\Antlr3.Runtime.dll</HintPath>
@@ -47,6 +46,24 @@
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\..\fluentnhibernate-1.1\NHibernate.dll</HintPath>
     </Reference>
+    <Reference Include="FluentNHibernate, Version=1.1.0.685, Culture=neutral, PublicKeyToken=8aa435e3cb308880">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\fluentnhibernate-1.1\FluentNHibernate.dll</HintPath>
+    </Reference>
+    <Reference Include="NHibernate.ByteCode.Castle, Version=2.1.2.4000, Culture=neutral, PublicKeyToken=aa95f207798dfdb4">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\fluentnhibernate-1.1\NHibernate.ByteCode.Castle.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="Castle.Core, Version=2.5.1.0, Culture=neutral, PublicKeyToken=407dd0808d44fbdc">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\Castle.Windsor.2.5.3\dotNet40\Castle.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="Castle.Windsor, Version=2.5.1.0, Culture=neutral, PublicKeyToken=407dd0808d44fbdc">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\Castle.Windsor.2.5.3\dotNet40\Castle.Windsor.dll</HintPath>
+    </Reference>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -55,19 +72,12 @@
     <Compile Include="Entities\User.cs" />
     <Compile Include="Entities\Person.cs" />
     <Compile Include="Entities\Resume.cs" />
-    <Compile Include="Initializer.cs" />
+    <Compile Include="Entities\EntityBase.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <ItemGroup>
     <Folder Include="Properties\" />
     <Folder Include="Core\" />
     <Folder Include="Entities\" />
-    <Folder Include="Mapping\" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="hibernate.cfg.xml" />
-    <None Include="Mapping\User.hbm.xml" />
-    <None Include="Mapping\Person.hbm.xml" />
-    <None Include="Mapping\Resume.hbm.xml" />
   </ItemGroup>
 </Project>

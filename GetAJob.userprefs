@@ -1,15 +1,25 @@
 ﻿<Properties>
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
-  <MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.Workbench ActiveDocument="GetAJob/Controllers/HomeController.cs">
+    <Files>
+      <File FileName="GetAJob/Installers/PersistenceInstaller.cs" Line="16" Column="1" />
+      <File FileName="GetAJob/Controllers/HomeController.cs" Line="25" Column="1" />
+      <File FileName="GetAJob.Persistence/Core/IRepository.cs" Line="1" Column="1" />
+      <File FileName="GetAJob.Persistence/Core/Repository.cs" Line="1" Column="1" />
+    </Files>
     <Pads>
       <Pad Id="ProjectPad">
         <State expanded="True">
           <Node name="GetAJob" expanded="True">
             <Node name="Controllers" expanded="True" />
+            <Node name="Windsor" expanded="True" />
             <Node name="Global.asax" expanded="True" />
           </Node>
           <Node name="GetAJob.Persistence" expanded="True">
-            <Node name="Initializer.cs" selected="True" />
+            <Node name="Core" expanded="True" />
+            <Node name="Entities" expanded="True" />
+            <Node name="Mappings" expanded="True" selected="True" />
+            <Node name="Properties" expanded="True" />
           </Node>
         </State>
       </Pad>
