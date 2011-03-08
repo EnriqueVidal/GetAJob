@@ -5,11 +5,17 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using System.Web.Routing;
+using GetAJob.Persistence;
 
 namespace GetAJob
 {
 	public class MvcApplication : System.Web.HttpApplication
 	{
+		private void Application_BeginRequest(object sender, EventArgs e)
+		{
+			Initializer.OpenSession();
+		}
+		
 		public static void RegisterRoutes (RouteCollection routes)
 		{
 			routes.IgnoreRoute ("{resource}.axd/{*pathInfo}");
@@ -21,6 +27,11 @@ namespace GetAJob
 		protected void Application_Start ()
 		{
 			RegisterRoutes (RouteTable.Routes);
+		}
+		
+		private void Application_EndRequest(object sender, EventArgs e)
+		{
+			Initializer.CloseSession();
 		}
 	}
 }

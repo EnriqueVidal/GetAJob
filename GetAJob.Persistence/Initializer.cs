@@ -10,19 +10,33 @@ namespace GetAJob.Persistence
 {
     public static class Initializer
     {
-        public static ISessionFactory GetSessionFactory(bool isNeedRecreateScheme)
+		public static ISessionFactory session;
+		public static Configuration config;
+
+		public static ISessionFactory Session { get { return session; } }
+		
+        public static ISessionFactory OpenSession()
         {
-            Configuration config = new Configuration();
-            config.Configure();
-            config.AddAssembly("GetAJob.Persistence");
+			if ( session == null ) {
+				config = new Configuration();
+				config.Configure();
+				config.AddAssembly("GetAJob.Persistence");
+				session = config.BuildSessionFactory();
+			}
 
-            if (isNeedRecreateScheme)
-            {
-                SchemaExport se = new SchemaExport(config);
-                se.Execute(true, true, false);
-            }
-
-            return config.BuildSessionFactory();
+            return session;
         }
+		
+		public static void SchemaExport()
+		{
+			SchemaExport se = new SchemaExport(config);
+			se.Execute(true, true, false);
+		}
+		
+		public static void CloseSession()
+		{
+			session.Close();
+			session.Dispose();
+		}
     }
 }

@@ -9,7 +9,7 @@ namespace GetAJob.Persistence.Entities
     public partial class User
     {
 		public virtual int Id { get; private set; }
-		public virtual string Username { get; set; }
+		public virtual string UserName { get; set; }
 		public virtual string Email { get; set; }
 		public virtual string PasswordHash { get; set; }
 		public virtual string Salt { get; set; }

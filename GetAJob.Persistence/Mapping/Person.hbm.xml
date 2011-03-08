@@ -7,7 +7,6 @@
     <property name="FirstName" column="first_name"/>
     <property name="LastName" column="last_name"/>
     
-    <one-to-one name="User" foreign-key="user_id" class="User" contrained="true" />
-	<one-to-one name="Resume" class="Resume" />
+    <many-to-one name="User" unique="true" column="user_id" />
   </class>
 </hibernate-mapping>

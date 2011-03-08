@@ -1,18 +1,24 @@
 ﻿<Properties>
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="GetAJobPersistence/Core/Repository.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="GetAJob/Controllers/AuthenticationsController.cs">
     <Files>
-      <File FileName="GetAJobPersistence/Core/IRepository.cs" Line="27" Column="46" />
-      <File FileName="GetAJobPersistence/Core/Repository.cs" Line="35" Column="1" />
+      <File FileName="GetAJob/Controllers/AuthenticationsController.cs" Line="22" Column="18" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
         <State expanded="True">
-          <Node name="GetAJob" expanded="True" />
-          <Node name="GetAJobPersistence" expanded="True">
-            <Node name="Core" expanded="True">
-              <Node name="Repository.cs" selected="True" />
+          <Node name="GetAJob" expanded="True">
+            <Node name="References" expanded="True">
+              <Node name="/Users/enrique/Projects/fluentnhibernate-1.1/FluentNHibernate.dll" selected="True" />
             </Node>
+            <Node name="Controllers" expanded="True" />
+            <Node name="Global.asax" expanded="True" />
+          </Node>
+          <Node name="GetAJob.Persistence" expanded="True">
+            <Node name="Core" expanded="True" />
+            <Node name="Entities" expanded="True" />
+            <Node name="Mapping" expanded="True" />
+            <Node name="Properties" expanded="True" />
           </Node>
         </State>
       </Pad>

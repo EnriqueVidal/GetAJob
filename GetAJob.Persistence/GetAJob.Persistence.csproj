@@ -7,8 +7,8 @@
     <SchemaVersion>2.0</SchemaVersion>
     <ProjectGuid>{CA19C719-9AFD-404D-8F2E-528B21CCB16C}</ProjectGuid>
     <OutputType>Library</OutputType>
-    <RootNamespace>GetAJobPersistence</RootNamespace>
-    <AssemblyName>GetAJobPersistence</AssemblyName>
+    <RootNamespace>GetAJob.Persistence</RootNamespace>
+    <AssemblyName>GetAJob.Persistence</AssemblyName>
     <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
@@ -65,9 +65,8 @@
     <Folder Include="Mapping\" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="hibernate.cfg.xml" />
-    <None Include="Mapping\User.hbm.xml" />
-    <None Include="Mapping\Person.hbm.xml" />
-    <None Include="Mapping\Resume.hbm.xml" />
+    <EmbeddedResource Include="Mapping\User.hbm.xml" />
+    <EmbeddedResource Include="Mapping\Person.hbm.xml" />
+    <EmbeddedResource Include="Mapping\Resume.hbm.xml" />
   </ItemGroup>
 </Project>

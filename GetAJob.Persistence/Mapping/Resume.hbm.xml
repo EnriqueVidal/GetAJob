@@ -5,7 +5,9 @@
       <generator class="native" />
     </id>     
     <property name="LastEmployer" column="last_employer"/>
-    <property name="Content" column="content" type="text" />
-    <one-to-one name="Person" foreign-key="person_id" class="Person" contrained="true" />
+    <property name="Content" type="StringClob">
+    	<column name="content" sql-type="text" />
+    </property>
+    <!-- <one-to-one name="Person" foreign-key="person_id" class="Person" contrained="true" /> -->
   </class>
 </hibernate-mapping>
