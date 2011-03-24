@@ -1,0 +1,19 @@
+<%@ Master Language="C#" Inherits="System.Web.Mvc.ViewMasterPage" %>
+<!DOCTYPE html>
+<html>
+	<head runat="server">
+		<asp:ContentPlaceHolder ID="head" runat="server"></asp:ContentPlaceHolder>
+		<!--[if IE]>
+    	<script type="text/javascript">
+    		var e = ("abbr,article,aside,audio,canvas,datalist,details,figure,footer,header,hgroup,mark,menu,meter,nav,output,progress,section,time,video").split(',');
+    		for (var i=0; i<e.length; i++) {
+    			document.createElement(e[i]);
+    		}
+    	</script>
+    	<![endif]-->
+    	<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.5.1/jquery.min.js"></script>
+	</head>
+	<body>
+		<asp:ContentPlaceHolder ID="MainContent" runat="server"></asp:ContentPlaceHolder>
+	</body>
+</html>

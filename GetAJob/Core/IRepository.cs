@@ -4,7 +4,7 @@ using System.Text;
 
 using NHibernate.Criterion;
 
-namespace GetAJob.Persistence.Core
+namespace GetAJob.Core
 {
     public interface IRepository<T>
     {

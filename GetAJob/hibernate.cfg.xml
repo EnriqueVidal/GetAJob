@@ -7,15 +7,15 @@
     <property name="connection.driver_class">
     NHibernate.Driver.MySqlDataDriver
     </property>
-	<property name="connection.connection_string">
-			Database=get_a_job;Server=localhost;User Id=get_a_job;Password=development
-	</property>
-	<property name="dialect">
-	NHibernate.Dialect.MySQLDialect
-	</property>
-	<property name="hbm2ddl.keywords">
-	none
-	</property>
+  	<property name="connection.connection_string">
+  		Database=get_a_job;Server=localhost;User Id=get_a_job;Password=development
+  	</property>
+  	<property name="dialect">
+  		NHibernate.Dialect.MySQLDialect
+  	</property>
+  	<property name="hbm2ddl.keywords">
+  		none
+  	</property>
     <property name="show_sql">
       false
     </property>

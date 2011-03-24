@@ -42,49 +42,54 @@
     <Reference Include="System.Web.Abstractions">
     </Reference>
     <Reference Include="System.Xml.Linq" />
-    <Reference Include="MySql.Data, Version=6.3.6.0, Culture=neutral, PublicKeyToken=c5687fc88969c44d">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\mysql-connector-net-6.3.6-noinstall\v4\mysql.data.dll</HintPath>
-    </Reference>
+    <Reference Include="System.Web.Mvc, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35" />
     <Reference Include="Antlr3.Runtime, Version=3.1.0.39271, Culture=neutral, PublicKeyToken=3a9cab8f8d22bfb7">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\fluentnhibernate-1.1\Antlr3.Runtime.dll</HintPath>
+      <HintPath>Libraries\Antlr3.Runtime.dll</HintPath>
     </Reference>
     <Reference Include="Castle.Core, Version=1.1.0.0, Culture=neutral, PublicKeyToken=407dd0808d44fbdc">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\fluentnhibernate-1.1\Castle.Core.dll</HintPath>
+      <HintPath>Libraries\Castle.Core.dll</HintPath>
     </Reference>
     <Reference Include="Castle.DynamicProxy2, Version=2.1.0.0, Culture=neutral, PublicKeyToken=407dd0808d44fbdc">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\fluentnhibernate-1.1\Castle.DynamicProxy2.dll</HintPath>
+      <HintPath>Libraries\Castle.DynamicProxy2.dll</HintPath>
     </Reference>
     <Reference Include="FluentNHibernate, Version=1.1.0.685, Culture=neutral, PublicKeyToken=8aa435e3cb308880">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\fluentnhibernate-1.1\FluentNHibernate.dll</HintPath>
+      <HintPath>Libraries\FluentNHibernate.dll</HintPath>
     </Reference>
     <Reference Include="Iesi.Collections, Version=1.0.1.0, Culture=neutral, PublicKeyToken=aa95f207798dfdb4">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\fluentnhibernate-1.1\Iesi.Collections.dll</HintPath>
+      <HintPath>Libraries\Iesi.Collections.dll</HintPath>
     </Reference>
     <Reference Include="log4net, Version=1.2.10.0, Culture=neutral, PublicKeyToken=1b44e1d426115821">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\fluentnhibernate-1.1\log4net.dll</HintPath>
+      <HintPath>Libraries\log4net.dll</HintPath>
+    </Reference>
+    <Reference Include="MySql.Data, Version=6.3.6.0, Culture=neutral, PublicKeyToken=c5687fc88969c44d">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>Libraries\mysql.data.dll</HintPath>
     </Reference>
     <Reference Include="NHibernate.ByteCode.Castle, Version=2.1.2.4000, Culture=neutral, PublicKeyToken=aa95f207798dfdb4">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\fluentnhibernate-1.1\NHibernate.ByteCode.Castle.dll</HintPath>
+      <HintPath>Libraries\NHibernate.ByteCode.Castle.dll</HintPath>
     </Reference>
     <Reference Include="NHibernate, Version=2.1.2.4000, Culture=neutral, PublicKeyToken=aa95f207798dfdb4">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\fluentnhibernate-1.1\NHibernate.dll</HintPath>
+      <HintPath>Libraries\NHibernate.dll</HintPath>
     </Reference>
-    <Reference Include="System.Web.Mvc, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Content\" />
     <Folder Include="Models\" />
     <Folder Include="Scripts\" />
     <Folder Include="Views\Registrations\" />
+    <Folder Include="Views\Shared\" />
+    <Folder Include="Content\Stylesheets\" />
+    <Folder Include="Mapping\" />
+    <Folder Include="Core\" />
+    <Folder Include="Libraries\" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Controllers\HomeController.cs" />
@@ -93,6 +98,12 @@
     </Compile>
     <Compile Include="Controllers\RegistrationsController.cs" />
     <Compile Include="Models\User.cs" />
+    <Compile Include="Models\EntityBase.cs" />
+    <Compile Include="Models\Person.cs" />
+    <Compile Include="Models\Resume.cs" />
+    <Compile Include="Initializer.cs" />
+    <Compile Include="Core\IRepository.cs" />
+    <Compile Include="Core\Repository.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Views\Web.config" />
@@ -100,6 +111,7 @@
     <Content Include="Web.config" />
     <Content Include="Global.asax" />
     <Content Include="Views\Registrations\SignUp.aspx" />
+    <Content Include="Views\Shared\Application.master" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <Import Project="$(MSBuildExtensionsPath)\Microsoft\VisualStudio\v9.0\WebApplications\Microsoft.WebApplication.targets" />
@@ -111,12 +123,22 @@
     </MonoDevelop>
   </ProjectExtensions>
   <ItemGroup>
-    <ProjectReference Include="..\GetAJob.Persistence\GetAJob.Persistence.csproj">
-      <Project>{CA19C719-9AFD-404D-8F2E-528B21CCB16C}</Project>
-      <Name>GetAJob.Persistence</Name>
-    </ProjectReference>
+    <EmbeddedResource Include="hibernate.cfg.xml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Mapping\Person.hbm.xml" />
+    <EmbeddedResource Include="Mapping\Resume.hbm.xml" />
+    <EmbeddedResource Include="Mapping\User.hbm.xml" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="hibernate.cfg.xml" />
+    <None Include="Libraries\mysql.data.dll" />
+    <None Include="Libraries\Antlr3.Runtime.dll" />
+    <None Include="Libraries\Castle.Core.dll" />
+    <None Include="Libraries\Castle.DynamicProxy2.dll" />
+    <None Include="Libraries\FluentNHibernate.dll" />
+    <None Include="Libraries\Iesi.Collections.dll" />
+    <None Include="Libraries\log4net.dll" />
+    <None Include="Libraries\NHibernate.ByteCode.Castle.dll" />
+    <None Include="Libraries\NHibernate.dll" />
   </ItemGroup>
 </Project>

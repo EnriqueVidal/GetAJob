@@ -1,9 +1,9 @@
-﻿<%@ Page Language="C#" Inherits="System.Web.Mvc.ViewPage<GetAJob.Persistence.Entities.User>" %>
-<html xmlns="http://www.w3.org/1999/xhtml">
-<head runat="server">
-	<title></title>
-</head>
-<body>
+﻿<%@ Page Language="C#" Inherits="System.Web.Mvc.ViewPage<GetAJob.Models.User>" MasterPageFile="~/Views/Shared/Application.Master" %>
+
+<asp:Content id="page_header" ContentPlaceHolderID="head" runat="server">
+	<title>Sign Up</title>
+</asp:Content>
+<asp:Content id="sign_in_form" ContentPlaceHolderID="MainContent" runat="server">
 	<div>
 		<%= Html.ValidationSummary("Create was unsuccessful. Please correct the errors and try again.") %> 
 		
@@ -13,8 +13,8 @@
 			<fieldset>
 				<legend>Register a new account</legend>
 				<label for="Username">Username</label>
-				<%= Html.TextBoxFor(model => model.Username) %>
-				<%= Html.ValidationMessageFor(model => model.Username) %>
+				<%= Html.TextBoxFor(model => model.UserName) %>
+				<%= Html.ValidationMessageFor(model => model.UserName) %>
 				
 				<label for="Email">Email</label>
 				<%= Html.TextBoxFor(model => model.Email, new { @type = "email" }) %>
@@ -28,6 +28,4 @@
 			</fieldset>
 		<% } %>
 	</div>
-
-	</div>
-</body>
+</asp:Content>

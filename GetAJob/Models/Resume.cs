@@ -1,11 +1,9 @@
 using System;
-using System.Net;
 
-namespace GetAJob.Persistence.Entities
+namespace GetAJob.Models
 {
-	public partial class Resume
+	public class Resume : EntityBase
 	{
-		public virtual int Id { get; private set; }
 		public virtual string LastEmployer { get; set; }
 		public virtual string Content { get; set; }
 		

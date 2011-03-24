@@ -1,18 +1,17 @@
 using System;
 using System.Collections.Generic;
 using System.Text;
-
+using System.Reflection;
 using NHibernate;
 using NHibernate.Cfg;
 using NHibernate.Tool.hbm2ddl;
 
-namespace GetAJob.Persistence
+namespace GetAJob
 {
     public static class Initializer
     {
-		public static ISessionFactory session;
-		public static Configuration config;
-
+		private static ISessionFactory session;
+		private static Configuration config;
 		public static ISessionFactory Session { get { return session; } }
 		
         public static ISessionFactory OpenSession()
@@ -20,7 +19,7 @@ namespace GetAJob.Persistence
 			if ( session == null ) {
 				config = new Configuration();
 				config.Configure();
-				config.AddAssembly("GetAJob.Persistence");
+				config.AddAssembly(Assembly.GetCallingAssembly());
 				session = config.BuildSessionFactory();
 			}
 

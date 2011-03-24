@@ -4,10 +4,9 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using System.Web.Mvc.Ajax;
+
 using NHibernate;
-using GetAJob.Persistence;
-using GetAJob.Persistence.Entities;
-using GetAJob.Persistence.Core;
+using GetAJob.Core;
 
 namespace GetAJob.Controllers
 {
