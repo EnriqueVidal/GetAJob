@@ -79,6 +79,7 @@
       <SpecificVersion>False</SpecificVersion>
       <HintPath>Libraries\NHibernate.dll</HintPath>
     </Reference>
+    <Reference Include="System.ComponentModel.DataAnnotations" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Content\" />
@@ -140,5 +141,7 @@
     <None Include="Libraries\log4net.dll" />
     <None Include="Libraries\NHibernate.ByteCode.Castle.dll" />
     <None Include="Libraries\NHibernate.dll" />
+    <None Include="Libraries\NHaml.dll" />
+    <None Include="Libraries\NHaml.Web.Mvc.dll" />
   </ItemGroup>
 </Project>

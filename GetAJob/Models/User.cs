@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Security.Cryptography;
 using System.Text;
 using System.Text.RegularExpressions;
+using System.ComponentModel.DataAnnotations;
 
 namespace GetAJob.Models
 {
@@ -12,33 +13,33 @@ namespace GetAJob.Models
     /// </summary>
 	public partial class User : EntityBase
 	{
-		public virtual string Password { get; set; }
+		private string password;
+		
+		[Required(ErrorMessage = "Password is Required")]
+		[RegularExpression("[\\S]{6,}", ErrorMessage = "Must be at least 6 characters.")]
+		public virtual string Password { 
+			get { return this.password; } 
+			set {
+				this.password = value;
+				this.Salt = this.CreateSalt();
+				this.PasswordHash = this.CalculateSHA1();
+			}
+		}
+
+		[Required(ErrorMessage = "Username is Required")]
+		[StringLength(12, ErrorMessage = "Username must be under 12 characters")]
 		public virtual string UserName { get; set; }
+		
+		[Required(ErrorMessage = "Email is Required")]
+		[RegularExpression(@"^([\w\.%\+\-]+)@([\w\-]+\.)+([\w]{2,})$", ErrorMessage = "Not valid Email")]
 		public virtual string Email { get; set; }
-		public virtual string PasswordHash { get; set; }
-		public virtual string Salt { get; set; }
+		
+		public virtual string PasswordHash { get; private set; }
+		public virtual string Salt { get; private set; }
 
 		public virtual Person Person { get; set; }
 
 		public User() { }
-
-		/// <summary>
-		/// This method returns true or false depending if the email is valid or not
-		/// </summary>
-		/// <returns>bool</returns>
-		public bool EmailIsValid()
-		{
-			return Regex.IsMatch(this.Email, @"^([\w\.%\+\-]+)@([\w\-]+\.)+([\w]{2,})$");
-		}
-
-		/// <summary>
-		/// This method creates a password salt and password hash for the user to be saved
-		/// </summary>
-		public void PrepareForSave()
-		{
-			this.CreateSalt();
-			this.CalculateSHA1();
-		}
 
 		/// <summary>
         /// This method creates a random password salt and returns it as a string
