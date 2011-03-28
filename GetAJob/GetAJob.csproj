@@ -91,6 +91,7 @@
     <Folder Include="Mapping\" />
     <Folder Include="Core\" />
     <Folder Include="Libraries\" />
+    <Folder Include="Views\Sessions\" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Controllers\HomeController.cs" />
@@ -105,14 +106,17 @@
     <Compile Include="Initializer.cs" />
     <Compile Include="Core\IRepository.cs" />
     <Compile Include="Core\Repository.cs" />
+    <Compile Include="Controllers\SessionsController.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Views\Web.config" />
     <Content Include="Views\Home\Index.aspx" />
     <Content Include="Web.config" />
     <Content Include="Global.asax" />
-    <Content Include="Views\Registrations\SignUp.aspx" />
     <Content Include="Views\Shared\Application.master" />
+    <Content Include="Scripts\modernizr.min.js" />
+    <Content Include="Views\Sessions\SignIn.aspx" />
+    <Content Include="Views\Registrations\SignUp.aspx" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <Import Project="$(MSBuildExtensionsPath)\Microsoft\VisualStudio\v9.0\WebApplications\Microsoft.WebApplication.targets" />
@@ -141,7 +145,7 @@
     <None Include="Libraries\log4net.dll" />
     <None Include="Libraries\NHibernate.ByteCode.Castle.dll" />
     <None Include="Libraries\NHibernate.dll" />
-    <None Include="Libraries\NHaml.dll" />
-    <None Include="Libraries\NHaml.Web.Mvc.dll" />
+    <None Include="Content\Stylesheets\application.css" />
+    <None Include="Content\Stylesheets\reset.css" />
   </ItemGroup>
 </Project>

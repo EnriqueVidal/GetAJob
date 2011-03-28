@@ -16,8 +16,8 @@ namespace GetAJob.Controllers
 		[AcceptVerbs(HttpVerbs.Get)]
 		public ActionResult SignUp()
 		{
-           if (this.User.Identity.IsAuthenticated)
-                return Redirect("/");
+			if (this.User.Identity.IsAuthenticated)
+				return Redirect("/");
 			return View();
 		}
 
@@ -28,13 +28,12 @@ namespace GetAJob.Controllers
 				try {
 					this.user = new Repository<Account>(this.session_factory);
 					this.user.Add(new_user);
-	
-		            Session.Add("current_user", new_user.Id);
-		            FormsAuthentication.SetAuthCookie(new_user.UserName, true);
-		            return RedirectToAction("SignIn");
-		        } catch(Exception e) {
-					System.Console.WriteLine(e.Message);
-		            return View();
+					Session.Add("current_user", new_user.Id);
+					FormsAuthentication.SetAuthCookie(new_user.UserName, true);
+					return RedirectToAction("Index", "Home");
+				} catch {
+					ViewData["ApplicationException"] = "There has been an error and we are aware of it, please try again later.";
+					return View();
 				}
 			} else {
 				return View(new_user);

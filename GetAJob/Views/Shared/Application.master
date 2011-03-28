@@ -2,6 +2,9 @@
 <!DOCTYPE html>
 <html>
 	<head runat="server">
+		<link rel="stylesheet" type="text/css" href="/Content/Stylesheets/reset.css" />
+		<link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=Lobster" />
+		<link rel="stylesheet" type="text/css" href="/Content/Stylesheets/application.css" />
 		<asp:ContentPlaceHolder ID="head" runat="server"></asp:ContentPlaceHolder>
 		<!--[if IE]>
     	<script type="text/javascript">
@@ -14,6 +17,18 @@
     	<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.5.1/jquery.min.js"></script>
 	</head>
 	<body>
-		<asp:ContentPlaceHolder ID="MainContent" runat="server"></asp:ContentPlaceHolder>
+		<div id="heading">
+			<h1>Get A Job <small>the place to promote your services</small></h1>
+			<div id="top_menu">
+				<a href="/Sessions/SignIn">Sign In</a>
+				<a href="/Registrations/SignUp">Sign Up</a>
+			</div>	
+		</div>
+		<div id="page_info">
+			<h2><asp:ContentPlaceHolder runat="server" id="page_description"/></h2>
+		</div>
+		<div id="content_wrapper">
+			<asp:ContentPlaceHolder ID="MainContent" runat="server" />
+		</div>
 	</body>
 </html>
