@@ -15,18 +15,25 @@ body {
   display: inline;
   float: right;
   margin-right: 35px;
-  margin-top: 15px;
+  margin-top: 20px;
 }
 
 #heading #top_menu a {
   color: #fff;
+  background-color: #000;
   text-decoration: none;
-  text-shadow: 1px 1px #666;
-  margin-right: 10px;
+  margin-right: 5px;
+  padding: 5px 10px;
+  border: 1px solid #666;
+  -moz-border-radius: 5px;
+  border-radius: 5px;
 }
 
 #heading #top_menu a:hover {
-  text-decoration: underline;
+  background-color: #eee;
+  color: #000;
+  border: 1px solid #000;
+  text-shadow: 1.5px 1px #fff;
 }
 
 #heading h1 {
