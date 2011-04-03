@@ -88,9 +88,8 @@ namespace GetAJob.Models
 		/// A <see cref="System.Object"/>
 		/// </returns>
 		public static object CheckLogin(string username, string password) {
-			DetachedCriteria criteria = DetachedCriteria.For<User>().Add(NHibernate.Criterion.Expression.Eq("UserName", username));
-			var user_repository = new Repository<User>(Initializer.Session);
-			var found_user = user_repository.FindFirst(criteria);
+			var user_repository  = new Repository<User>();
+			var found_user       = user_repository.FindBy("UserName", username);
 			string intended_hash = CalculateSHA1(password + found_user.Salt, Encoding.Default);
 
 			if ( intended_hash == found_user.PasswordHash)

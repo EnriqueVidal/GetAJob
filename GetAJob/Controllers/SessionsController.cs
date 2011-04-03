@@ -25,6 +25,12 @@ namespace GetAJob.Controllers
 			if (user_tried != null) {
 				Session.Add("current_user", user_tried.Id);
 				FormsAuthentication.SetAuthCookie(user_tried.UserName, true);
+				string return_url = this.Url.RequestContext.HttpContext.Request.QueryString["ReturnUrl"];
+
+				if ( return_url != null && return_url.Trim() != String.Empty)
+				{
+					return Redirect(return_url);
+				}
 				return RedirectToAction("Index", "Home");
 			} else {
 				return View();
@@ -38,6 +44,8 @@ namespace GetAJob.Controllers
 			FormsAuthentication.SignOut();
 			return RedirectToAction("Index", "Home");
 		}
+
+		~SessionsController() { Initializer.CloseSession(); }
 	}
 }
 

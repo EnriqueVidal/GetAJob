@@ -11,7 +11,6 @@ namespace GetAJob.Controllers
 	public class RegistrationsController : Controller
 	{
 		IRepository<Account> user;
-		ISessionFactory session_factory = Initializer.Session;
 
 		[AcceptVerbs(HttpVerbs.Get)]
 		public ActionResult SignUp()
@@ -26,7 +25,7 @@ namespace GetAJob.Controllers
 			if (ModelState.IsValid)
 			{
 				try {
-					this.user = new Repository<Account>(this.session_factory);
+					this.user = new Repository<Account>();
 					this.user.Add(new_user);
 					Session.Add("current_user", new_user.Id);
 					FormsAuthentication.SetAuthCookie(new_user.UserName, true);
@@ -39,5 +38,7 @@ namespace GetAJob.Controllers
 				return View(new_user);
 			}
 		}
+
+		~RegistrationsController() { Initializer.CloseSession(); }
 	}
 }

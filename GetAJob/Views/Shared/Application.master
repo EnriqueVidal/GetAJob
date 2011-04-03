@@ -18,7 +18,7 @@
 	</head>
 	<body>
 		<div id="heading">
-			<h1>Get A Job <small>the place to promote your services</small></h1>
+			<a href="/"><h1>Get A Job <small>the place to promote your services</small></h1></a>
 			<div id="top_menu">
 				<asp:LoginView id="login_view" runat="server">
 					<LoggedInTemplate>
@@ -33,7 +33,16 @@
 			</div>	
 		</div>
 		<div id="page_info">
-			<h2><asp:ContentPlaceHolder runat="server" id="page_description"/></h2>
+			<div id="main_menu">
+  				<div id="menu_items">
+    				<a href="#">Getting Started</a>
+    				<a href="#">About</a>
+    				<a href="#">Post a job</a>
+    				<a href="#">Look for offers</a>
+    				<a href="#">Help</a>
+    				<a href="#">Developers</a>
+  				</div>
+			</div>
 		</div>
 		<div id="content_wrapper">
 			<asp:ContentPlaceHolder ID="MainContent" runat="server" />

@@ -1,4 +1,5 @@
 using System;
+using System.ComponentModel.DataAnnotations;
 
 namespace GetAJob.Models
 {
@@ -7,7 +8,10 @@ namespace GetAJob.Models
     /// </summary>
 	public class Person : EntityBase
 	{
+		[Required(ErrorMessage = "Firstname is Required")]
 		public virtual String FirstName { get; set; }
+
+		[Required(ErrorMessage = "Lastname is Required")]
 		public virtual String LastName { get; set; }
 
 		public virtual Resume Resume { get; set; }

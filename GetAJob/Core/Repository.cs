@@ -9,18 +9,13 @@ namespace GetAJob.Core
 {
     public class Repository<T> : IRepository<T>
     {
-        private ISessionFactory SessionFactory;
+        private ISessionFactory SessionFactory = Initializer.Session;
         private ISession Session
         {
             get
             {
                 return SessionFactory.OpenSession();
             }
-        }
-
-        public Repository(ISessionFactory sessionFactory)
-        {
-            SessionFactory = sessionFactory;
         }
       
         public void Add(T entity)
@@ -102,16 +97,48 @@ namespace GetAJob.Core
         }
 
 
-        /// <summary>
-        /// Returns the one entity that matches the given criteria. Throws an exception if
-        /// more than one entity matches the criteria
-        /// </summary>
-        /// <param name="criteria"></param>
-        /// <returns></returns>
+		/// <summary>
+		/// Returns the one entity that matches the given criteria. Throws an exception if
+		/// more than one entity matches the criteria
+		/// </summary>
+		/// <param name="criteria"></param>
+		/// <returns></returns>
         public T FindOne(DetachedCriteria criteria)
         {
             return criteria.GetExecutableCriteria(Session).UniqueResult<T>();
         }
+
+		/// <summary>
+		/// Returns a record found by Id
+		/// </summary>
+		/// <param name="id">
+		/// A <see cref="System.Int32"/>
+		/// </param>
+		/// <returns>
+		/// A <see cref="T"/>
+		/// </returns>
+		public T Find(int id)
+		{
+			return FindBy("Id", id);
+		}
+
+		/// <summary>
+		/// Returns a Record found by a field name and value
+		/// </summary>
+		/// <param name="key">
+		/// A <see cref="System.String"/>
+		/// </param>
+		/// <param name="value">
+		/// A <see cref="System.String"/>
+		/// </param>
+		/// <returns>
+		/// A <see cref="T"/>
+		/// </returns>
+		public T FindBy(string key, object value)
+		{
+			DetachedCriteria criteria = DetachedCriteria.For<T>().Add(NHibernate.Criterion.Expression.Eq(key, value));
+			return FindFirst(criteria);
+		}
 
         /// <summary>
         /// Returns the first entity to match the given criteria
@@ -153,7 +180,6 @@ namespace GetAJob.Core
                 .SetProjection(Projections.RowCountInt64()).UniqueResult());
         }
 
-
         /// <summary>
         /// Returns true if at least one entity exists that matches the given criteria
         /// </summary>
@@ -163,6 +189,5 @@ namespace GetAJob.Core
         {
             return Count(criteria) > 0;
         }
-
     }
 }

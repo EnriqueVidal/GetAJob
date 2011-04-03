@@ -19,6 +19,8 @@ namespace GetAJob.Controllers
 			ViewData["Message"] = "Welcome to ASP.NET MVC on Mono!";
 			return View ();
 		}
+
+		~HomeController() { Initializer.CloseSession(); }
 	}
 }
 

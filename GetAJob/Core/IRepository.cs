@@ -25,5 +25,7 @@ namespace GetAJob.Core
         T FindFirst(DetachedCriteria criteria, Order order);
         T FindFirst(DetachedCriteria criteria);
         T FindOne(DetachedCriteria criteria);
+		T FindBy(string key, object value);
+		T Find(int id);
     }
 }
