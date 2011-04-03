@@ -7,6 +7,6 @@
     <property name="FirstName" column="first_name"/>
     <property name="LastName" column="last_name"/>
     
-    <many-to-one name="User" unique="true" column="user_id" />
+    <many-to-one name="User" unique="true" />
   </class>
 </hibernate-mapping>
