@@ -90,10 +90,15 @@ namespace GetAJob.Models
 		public static object CheckLogin(string username, string password) {
 			var user_repository  = new Repository<User>();
 			var found_user       = user_repository.FindBy("UserName", username);
-			string intended_hash = CalculateSHA1(password + found_user.Salt, Encoding.Default);
 
-			if ( intended_hash == found_user.PasswordHash)
-				return found_user;
+			try {
+				string intended_hash = CalculateSHA1(password + found_user.Salt, Encoding.Default);
+				if ( intended_hash == found_user.PasswordHash)
+					return found_user;
+			} catch {
+				return null;
+			}
+
 			return null;
 		}
 	}

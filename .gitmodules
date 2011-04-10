@@ -1,0 +1,3 @@
+[submodule "GetAJob/Scripts/wymeditor"]
+	path = GetAJob/Scripts/wymeditor
+	url = https://github.com/wymeditor/wymeditor.git

@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <hibernate-mapping xmlns="urn:nhibernate-mapping-2.2" auto-import="true" assembly="GetAJob" namespace="GetAJob.Models">
-  <class name="Resume" table="Resume" lazy="false">
+  <class name="Resume" table="Resumes" lazy="false">
     <id name="Id" column="id">
       <generator class="native" />
     </id>     
@@ -8,6 +8,6 @@
     <property name="Content" type="StringClob">
     	<column name="content" sql-type="text" />
     </property>
-    <!-- <one-to-one name="Person" foreign-key="person_id" class="Person" contrained="true" /> -->
+    <many-to-one name="Person" unique="true" column="person_id"/>
   </class>
 </hibernate-mapping>

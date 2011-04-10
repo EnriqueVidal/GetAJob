@@ -93,7 +93,7 @@ body {
   width: 980px;
   margin: 5px auto;
   padding: 25px;
-  border: 1px solid #ddd;
+  border: 1px solid #666;
   -moz-border-radius: 5px;
   border-radius: 5px;
   background-color: #fff;
@@ -110,9 +110,54 @@ body {
 }
 
 #content_wrapper input[type=text], #content_wrapper input[type=password], #content_wrapper input[type=email] {
-  border: 1px solid #bbb;
+  border: 1px solid #999;
   padding: 5px;
   margin: 5px 0;
   width: 360px;
   display: block;
+}
+
+input[type=submit] {
+  font-family: 'Lobster';
+  font-size: 16px;
+  border: 1px solid #999;
+  color: #333;
+  background-color: #eee;
+  padding: 4px 10px;
+  margin-top: 15px;
+  -moz-border-radius: 5px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.blue_button {
+  background-color: #3B5998;
+  text-shadow: #0E385F;
+  border: 1px solid #0E385F;
+  color: #fff;
+}
+
+.green_button {
+  background-color: #69A74E;
+  border: 1px solid #3B6E22;
+  text-shadow: #2C5115;
+  color: #fff;
+}
+
+a.link_button {
+  font-family: 'Lobster';
+  font-size: 16px;
+  text-decoration: none;
+  padding: 5px 10px;
+  margin-top: 15px;
+  -moz-border-radius: 5px;
+  border-radius: 5px;
+}
+
+.wym_box {
+	margin-bottom: 15px;
+}
+
+.clear {
+  clear: both;
 }

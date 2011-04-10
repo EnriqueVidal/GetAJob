@@ -4,6 +4,7 @@ using System.Web.Security;
 using GetAJob.Core;
 using NHibernate;
 using Account = GetAJob.Models.User;
+using System.Web;
 
 namespace GetAJob.Controllers
 {
@@ -21,6 +22,7 @@ namespace GetAJob.Controllers
 		}
 
 		[AcceptVerbs(HttpVerbs.Post)]
+		[ValidateInput(false)]
 		public ActionResult SignUp([Bind(Exclude = "Id")] Account new_user) {
 			try {
 				this.user = new Repository<Account>();
@@ -32,8 +34,6 @@ namespace GetAJob.Controllers
 				ViewData["ApplicationException"] = "There has been an error and we are aware of it, please try again later.";
 				return View(new_user);
 			}
-
-			return View(new_user);
 		}
 
 		~RegistrationsController() { Initializer.CloseSession(); }
