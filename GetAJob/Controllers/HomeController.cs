@@ -14,12 +14,17 @@ namespace GetAJob.Controllers
 	public class HomeController : Controller
 	{
 		
-		public ActionResult Index ()
+		public ActionResult Index()
 		{	
 			ViewData["Message"] = "Welcome to ASP.NET MVC on Mono!";
-			return View ();
+			return View();
 		}
-
+		
+		public ActionResult About()
+		{
+			return View();
+		}
+		
 		~HomeController() { Initializer.CloseSession(); }
 	}
 }

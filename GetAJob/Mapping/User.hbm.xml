@@ -9,6 +9,6 @@
     <property name="PasswordHash" column="password_hash" not-null="true"/>
     <property name="Salt" column="salt" not-null="true"/>
     
-	<one-to-one name="Person" class="Person" cascade="all" constrained="true" foreign-key="none" />
+	<one-to-one name="Person" class="Person" cascade="all" foreign-key="none" fetch="join"/>
   </class>
 </hibernate-mapping>

@@ -27,11 +27,6 @@ namespace GetAJob
 		{
 			RegisterRoutes (RouteTable.Routes);
 		}
-
-		private void Application_EndRequest(object sender, EventArgs e)
-		{
-			//Initializer.CloseSession();
-		}
 	}
 }
 

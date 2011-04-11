@@ -8,6 +8,6 @@
     <property name="Content" type="StringClob">
     	<column name="content" sql-type="text" />
     </property>
-    <many-to-one name="Person" unique="true" column="person_id"/>
+    <many-to-one name="Person" unique="true" />
   </class>
 </hibernate-mapping>

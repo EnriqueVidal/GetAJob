@@ -4,9 +4,9 @@
 </asp:Content>
 <asp:Content ID="page_content" ContentPlaceHolderID="MainContent" runat="server">
 	<div id="login_form">
-	<%= Html.ValidationSummary(true, "Login was unsuccessful.") %>
-		<fieldset>
-			<legend>Sign In</legend>
+		<h1>User Sign In</h1>
+		<p>Sign in and look for the latest job offers.</p>
+		<div id="user_signin">
 			<% using (Html.BeginForm()) { %>
 				<%= Html.Label("Username") %>
 		    	<%= Html.TextBox("Username") %>
@@ -17,6 +17,6 @@
 		    	<%= Html.ValidationMessage("Password") %>
 		    	<input type="submit" value="Sig In" />
 		    <% } %>
-	    </fieldset>
+	    </div>
 	</div>
 </asp:Content>

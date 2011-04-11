@@ -34,7 +34,7 @@ namespace GetAJob.Core
             using (ISession session = SessionFactory.OpenSession())
             using (session.BeginTransaction())
             {
-                session.SaveOrUpdate(entity);
+				session.Update(entity);
                 session.Transaction.Commit();
             }
         }

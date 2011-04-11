@@ -7,7 +7,7 @@
     <property name="FirstName" column="first_name"/>
     <property name="LastName" column="last_name"/>
     
-    <many-to-one name="User" unique="true" column="user_id" />
-    <one-to-one name="Resume" class="Resume" cascade="all" constrained="true" foreign-key="none" />
+    <many-to-one name="User" unique="true" />
+    <one-to-one name="Resume" class="Resume" cascade="all" foreign-key="none" fetch="join" />
   </class>
 </hibernate-mapping>
