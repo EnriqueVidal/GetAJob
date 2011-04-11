@@ -54,10 +54,11 @@
 		<div id="page_info">
 			<div id="main_menu">
   				<div id="menu_items">
+  					<a href="/">Home</a>
     				<a href="/Registrations/SignUp">Getting Started</a>
     				<a href="/Home/About">About</a>
-    				<a href="#">Post a job</a>
-    				<a href="#">Look for offers</a>
+    				<a href="/JobOffers/New">Post a job</a>
+    				<a href="/JobOffers?page=1">Look for offers</a>
     				<a href="#">Help</a>
     				<a href="#">Developers</a>
   				</div>

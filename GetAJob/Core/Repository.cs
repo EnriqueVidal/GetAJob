@@ -189,5 +189,27 @@ namespace GetAJob.Core
         {
             return Count(criteria) > 0;
         }
+
+		/// <summary>
+		/// Gets a range of objects from a specified model
+		/// </summary>
+		/// <param name="page_size">
+		/// A <see cref="System.Int32"/>
+		/// </param>
+		/// <param name="index">
+		/// A <see cref="System.Int32"/>
+		/// </param>
+		/// <returns>
+		/// A <see cref="IEnumerable<T>"/>
+		/// </returns>
+		public IEnumerable<T> GetRange( int page_size, int page, Order order )
+		{
+			return DetachedCriteria.For<T>()
+				.SetFirstResult((page -1) * page_size)
+				.SetMaxResults(page_size)
+				.AddOrder(order)
+				.GetExecutableCriteria(Session)
+				.List<T>();
+		}
     }
 }

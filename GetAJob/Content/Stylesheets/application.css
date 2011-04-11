@@ -202,3 +202,16 @@ a.link_button {
   border: 1px solid #A00 !important;
   background-color: #FFAAAA !important;
 }
+
+#content_wrapper .job_offer {
+  border-bottom: 1px solid #bbb;
+  padding: 5px;
+  margin: 10px 0;
+}
+
+#content_wrapper .job_offer h2 {
+  font-weight: bold;
+  margin: 15px 0px;
+  font-family= 'Droid Serif';
+  font-size: 22px;
+}

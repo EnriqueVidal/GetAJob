@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2" auto-import="true" assembly="GetAJob" namespace="GetAJob.Models">
+  <class name="JobOffer" table="JobOffers" lazy="false">
+    <id name="Id" column="id">
+      <generator class="native" />
+    </id>    
+    <property name="Company" column="company_name" not-null="true" />
+    <property name="Contact" column="company_contact" not-null="true" />
+    <property name="JobTitle" column="job_title" not-null="true" />
+    <property name="JobDescription" type="StringClob" not-null="true" >
+    	<column name="job_description" sql-type="text" />
+    </property>
+  </class>
+</hibernate-mapping>

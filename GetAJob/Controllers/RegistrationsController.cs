@@ -24,16 +24,20 @@ namespace GetAJob.Controllers
 		[AcceptVerbs(HttpVerbs.Post)]
 		[ValidateInput(false)]
 		public ActionResult SignUp([Bind(Exclude = "Id")] Account new_user) {
-			try {
-				this.user = new Repository<Account>();
-				this.user.Add(new_user);
-				Session.Add("current_user", new_user.Id);
-				FormsAuthentication.SetAuthCookie(new_user.UserName, true);
-				return RedirectToAction("Index", "Home");
-			} catch {
-				ViewData["ApplicationException"] = "There has been an error and we are aware of it, please try again later.";
-				return View(new_user);
+			if (ModelState.IsValid)
+			{
+				try {
+					this.user = new Repository<Account>();
+					this.user.Add(new_user);
+					Session.Add("current_user", new_user.Id);
+					FormsAuthentication.SetAuthCookie(new_user.UserName, true);
+					return RedirectToAction("Index", "Home");
+				} catch {
+					ViewData["ApplicationException"] = "There has been an error and we are aware of it, please try again later.";
+					return View(new_user);
+				}
 			}
+			return View(new_user);
 		}
 
 		~RegistrationsController() { Initializer.CloseSession(); }

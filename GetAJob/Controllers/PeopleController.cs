@@ -14,6 +14,12 @@ namespace GetAJob.Controllers
 		private Account user;
 
 		[AcceptVerbs(HttpVerbs.Get)]
+		public ActionResult Index()
+		{
+			
+		}
+
+		[AcceptVerbs(HttpVerbs.Get)]
 		[RequiresAuthentication]
 		public ActionResult Edit()
 		{
@@ -31,8 +37,11 @@ namespace GetAJob.Controllers
 		[ValidateInput(false)]
 		public ActionResult Edit(Person new_person)
 		{
-			var person_factory = new Repository<Person>();
-			person_factory.Update(new_person);
+			if (ModelState.IsValid) {
+				var person_factory = new Repository<Person>();
+				person_factory.Update(new_person);
+			}
+
 			return View();
 		}
 

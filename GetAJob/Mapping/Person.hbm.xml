@@ -4,8 +4,8 @@
     <id name="Id" column="id">
       <generator class="native" />
     </id>    
-    <property name="FirstName" column="first_name"/>
-    <property name="LastName" column="last_name"/>
+    <property name="FirstName" column="first_name" not-null="true" />
+    <property name="LastName" column="last_name" not-null="true" />
     
     <many-to-one name="User" unique="true" />
     <one-to-one name="Resume" class="Resume" cascade="all" foreign-key="none" fetch="join" />

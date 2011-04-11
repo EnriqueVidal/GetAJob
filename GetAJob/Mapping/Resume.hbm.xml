@@ -5,7 +5,7 @@
       <generator class="native" />
     </id>     
     <property name="LastEmployer" column="last_employer"/>
-    <property name="Content" type="StringClob">
+    <property name="Content" type="StringClob" not-null="true">
     	<column name="content" sql-type="text" />
     </property>
     <many-to-one name="Person" unique="true" />

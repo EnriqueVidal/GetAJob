@@ -27,5 +27,6 @@ namespace GetAJob.Core
         T FindOne(DetachedCriteria criteria);
 		T FindBy(string key, object value);
 		T Find(int id);
+		IEnumerable<T> GetRange( int page_size, int page, Order order );
     }
 }
