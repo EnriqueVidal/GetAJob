@@ -203,13 +203,13 @@ a.link_button {
   background-color: #FFAAAA !important;
 }
 
-#content_wrapper .job_offer {
+#content_wrapper .job_offer, #content_wrapper .person {
   border-bottom: 1px solid #bbb;
   padding: 5px;
   margin: 10px 0;
 }
 
-#content_wrapper .job_offer h2 {
+#content_wrapper .job_offer h2, #content_wrapper .person h2 {
   font-weight: bold;
   margin: 15px 0px;
   font-family= 'Droid Serif';

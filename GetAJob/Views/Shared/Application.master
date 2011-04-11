@@ -59,8 +59,8 @@
     				<a href="/Home/About">About</a>
     				<a href="/JobOffers/New">Post a job</a>
     				<a href="/JobOffers?page=1">Look for offers</a>
-    				<a href="#">Help</a>
-    				<a href="#">Developers</a>
+    				<a href="/People?page=1">Look for people</a>
+    				<a href="/Service.asmx">Developers</a>
   				</div>
 			</div>
 		</div>

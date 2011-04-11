@@ -4,6 +4,7 @@ using NHibernate;
 using GetAJob.Core;
 using GetAJob.Models;
 using Account = GetAJob.Models.User;
+using NHibernate.Criterion;
 
 namespace GetAJob.Controllers
 {
@@ -12,11 +13,14 @@ namespace GetAJob.Controllers
 	{
 		private Current Current = GetAJob.Current.Instance;
 		private Account user;
+		private int per_page = 5;
 
 		[AcceptVerbs(HttpVerbs.Get)]
-		public ActionResult Index()
+		public ActionResult Index(int page)
 		{
-			
+			var people_repo = new Repository<Person>();
+			var people = people_repo.GetRange(this.per_page, page, new Order("Id", false));
+			return View(people);
 		}
 
 		[AcceptVerbs(HttpVerbs.Get)]

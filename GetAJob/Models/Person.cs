@@ -18,5 +18,9 @@ namespace GetAJob.Models
 		public virtual User User { get; set; }
 
 		public Person () { }
+
+		public string FullName {
+			get { return string.Format("{0} {1}", this.FirstName, this.LastName); }
+		}
 	}
 }
