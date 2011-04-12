@@ -1,0 +1,6 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<discovery xmlns:scl="http://schemas.xmlsoap.org/disco/scl/" xmlns="http://schemas.xmlsoap.org/disco/">
+  <scl:contractRef docRef="http://localhost:8080/Service.asmx" ref="http://localhost:8080/Service.asmx?wsdl" />
+  <soap xmlns:q1="http://www.getajob.org/" binding="q1:ServiceSoap" address="http://localhost:8080/Service.asmx" xmlns="http://schemas/xmlsoap.org/disco/schema/soap/" />
+  <soap xmlns:q2="http://www.getajob.org/" binding="q2:ServiceSoap12" address="http://localhost:8080/Service.asmx" xmlns="http://schemas/xmlsoap.org/disco/schema/soap/" />
+</discovery>

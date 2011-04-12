@@ -1,0 +1,282 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<definitions xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:s0="http://www.getajob.org/" name="Service" targetNamespace="http://www.getajob.org/" xmlns="http://schemas.xmlsoap.org/wsdl/">
+  <types>
+    <xs:schema elementFormDefault="qualified" targetNamespace="http://www.getajob.org/" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+      <xs:element name="getOffers">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="1" maxOccurs="1" name="page_index" type="xs:int" />
+            <xs:element minOccurs="1" maxOccurs="1" name="per_page" type="xs:int" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:complexType name="ArrayOfJobOffer">
+        <xs:sequence>
+          <xs:element minOccurs="0" maxOccurs="unbounded" name="JobOffer" nillable="true" type="s0:JobOffer" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="JobOffer">
+        <xs:complexContent mixed="false">
+          <xs:extension base="s0:EntityBase">
+            <xs:sequence>
+              <xs:element minOccurs="0" maxOccurs="1" name="Company" type="xs:string" />
+              <xs:element minOccurs="0" maxOccurs="1" name="JobDescription" type="xs:string" />
+              <xs:element minOccurs="0" maxOccurs="1" name="Contact" type="xs:string" />
+              <xs:element minOccurs="0" maxOccurs="1" name="JobTitle" type="xs:string" />
+            </xs:sequence>
+          </xs:extension>
+        </xs:complexContent>
+      </xs:complexType>
+      <xs:complexType name="EntityBase">
+        <xs:sequence>
+          <xs:element minOccurs="1" maxOccurs="1" name="Id" type="xs:int" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="Resume">
+        <xs:complexContent mixed="false">
+          <xs:extension base="s0:EntityBase">
+            <xs:sequence>
+              <xs:element minOccurs="0" maxOccurs="1" name="LastEmployer" type="xs:string" />
+              <xs:element minOccurs="0" maxOccurs="1" name="Content" type="xs:string" />
+              <xs:element minOccurs="0" maxOccurs="1" name="Person" type="s0:Person" />
+            </xs:sequence>
+          </xs:extension>
+        </xs:complexContent>
+      </xs:complexType>
+      <xs:complexType name="Person">
+        <xs:complexContent mixed="false">
+          <xs:extension base="s0:EntityBase">
+            <xs:sequence>
+              <xs:element minOccurs="0" maxOccurs="1" name="FirstName" type="xs:string" />
+              <xs:element minOccurs="0" maxOccurs="1" name="LastName" type="xs:string" />
+              <xs:element minOccurs="0" maxOccurs="1" name="Resume" type="s0:Resume" />
+              <xs:element minOccurs="0" maxOccurs="1" name="User" type="s0:User" />
+            </xs:sequence>
+          </xs:extension>
+        </xs:complexContent>
+      </xs:complexType>
+      <xs:complexType name="User">
+        <xs:complexContent mixed="false">
+          <xs:extension base="s0:EntityBase">
+            <xs:sequence>
+              <xs:element minOccurs="0" maxOccurs="1" name="Password" type="xs:string" />
+              <xs:element minOccurs="0" maxOccurs="1" name="UserName" type="xs:string" />
+              <xs:element minOccurs="0" maxOccurs="1" name="Email" type="xs:string" />
+              <xs:element minOccurs="0" maxOccurs="1" name="PasswordHash" type="xs:string" />
+              <xs:element minOccurs="0" maxOccurs="1" name="Salt" type="xs:string" />
+              <xs:element minOccurs="0" maxOccurs="1" name="Person" type="s0:Person" />
+            </xs:sequence>
+          </xs:extension>
+        </xs:complexContent>
+      </xs:complexType>
+      <xs:element name="getOffersResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" maxOccurs="1" name="getOffersResult" type="s0:ArrayOfJobOffer" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="getPeople">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="1" maxOccurs="1" name="page_index" type="xs:int" />
+            <xs:element minOccurs="1" maxOccurs="1" name="per_page" type="xs:int" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:complexType name="ArrayOfPerson">
+        <xs:sequence>
+          <xs:element minOccurs="0" maxOccurs="unbounded" name="Person" nillable="true" type="s0:Person" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:element name="getPeopleResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" maxOccurs="1" name="getPeopleResult" type="s0:ArrayOfPerson" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="ArrayOfJobOffer" nillable="true" type="s0:ArrayOfJobOffer" />
+      <xs:element name="ArrayOfPerson" nillable="true" type="s0:ArrayOfPerson" />
+    </xs:schema>
+  </types>
+  <message name="getOffersSoapIn">
+    <part name="parameters" element="s0:getOffers" />
+  </message>
+  <message name="getOffersSoapOut">
+    <part name="parameters" element="s0:getOffersResponse" />
+  </message>
+  <message name="getPeopleSoapIn">
+    <part name="parameters" element="s0:getPeople" />
+  </message>
+  <message name="getPeopleSoapOut">
+    <part name="parameters" element="s0:getPeopleResponse" />
+  </message>
+  <message name="getOffersHttpGetIn">
+    <part name="page_index" type="s:int" />
+    <part name="per_page" type="s:int" />
+  </message>
+  <message name="getOffersHttpGetOut">
+    <part name="Body" element="s0:ArrayOfJobOffer" />
+  </message>
+  <message name="getPeopleHttpGetIn">
+    <part name="page_index" type="s:int" />
+    <part name="per_page" type="s:int" />
+  </message>
+  <message name="getPeopleHttpGetOut">
+    <part name="Body" element="s0:ArrayOfPerson" />
+  </message>
+  <message name="getOffersHttpPostIn">
+    <part name="page_index" type="s:int" />
+    <part name="per_page" type="s:int" />
+  </message>
+  <message name="getOffersHttpPostOut">
+    <part name="Body" element="s0:ArrayOfJobOffer" />
+  </message>
+  <message name="getPeopleHttpPostIn">
+    <part name="page_index" type="s:int" />
+    <part name="per_page" type="s:int" />
+  </message>
+  <message name="getPeopleHttpPostOut">
+    <part name="Body" element="s0:ArrayOfPerson" />
+  </message>
+  <portType name="ServiceSoap">
+    <operation name="getOffers">
+      <input message="s0:getOffersSoapIn" />
+      <output message="s0:getOffersSoapOut" />
+    </operation>
+    <operation name="getPeople">
+      <input message="s0:getPeopleSoapIn" />
+      <output message="s0:getPeopleSoapOut" />
+    </operation>
+  </portType>
+  <portType name="ServiceSoap12">
+    <operation name="getOffers">
+      <input message="s0:getOffersSoapIn" />
+      <output message="s0:getOffersSoapOut" />
+    </operation>
+    <operation name="getPeople">
+      <input message="s0:getPeopleSoapIn" />
+      <output message="s0:getPeopleSoapOut" />
+    </operation>
+  </portType>
+  <portType name="ServiceHttpGet">
+    <operation name="getOffers">
+      <input message="s0:getOffersHttpGetIn" />
+      <output message="s0:getOffersHttpGetOut" />
+    </operation>
+    <operation name="getPeople">
+      <input message="s0:getPeopleHttpGetIn" />
+      <output message="s0:getPeopleHttpGetOut" />
+    </operation>
+  </portType>
+  <portType name="ServiceHttpPost">
+    <operation name="getOffers">
+      <input message="s0:getOffersHttpPostIn" />
+      <output message="s0:getOffersHttpPostOut" />
+    </operation>
+    <operation name="getPeople">
+      <input message="s0:getPeopleHttpPostIn" />
+      <output message="s0:getPeopleHttpPostOut" />
+    </operation>
+  </portType>
+  <binding name="ServiceSoap" type="s0:ServiceSoap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <operation name="getOffers">
+      <soap:operation soapAction="http://www.getajob.org/getOffers" style="document" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+    </operation>
+    <operation name="getPeople">
+      <soap:operation soapAction="http://www.getajob.org/getPeople" style="document" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+    </operation>
+  </binding>
+  <binding name="ServiceSoap12" type="s0:ServiceSoap12">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <operation name="getOffers">
+      <soap12:operation soapAction="http://www.getajob.org/getOffers" style="document" />
+      <input>
+        <soap12:body use="literal" />
+      </input>
+      <output>
+        <soap12:body use="literal" />
+      </output>
+    </operation>
+    <operation name="getPeople">
+      <soap12:operation soapAction="http://www.getajob.org/getPeople" style="document" />
+      <input>
+        <soap12:body use="literal" />
+      </input>
+      <output>
+        <soap12:body use="literal" />
+      </output>
+    </operation>
+  </binding>
+  <binding name="ServiceHttpGet" type="s0:ServiceHttpGet">
+    <http:binding verb="GET" />
+    <operation name="getOffers">
+      <http:operation location="/getOffers" />
+      <input>
+        <http:urlEncoded />
+      </input>
+      <output>
+        <mime:mimeXml part="Body" />
+      </output>
+    </operation>
+    <operation name="getPeople">
+      <http:operation location="/getPeople" />
+      <input>
+        <http:urlEncoded />
+      </input>
+      <output>
+        <mime:mimeXml part="Body" />
+      </output>
+    </operation>
+  </binding>
+  <binding name="ServiceHttpPost" type="s0:ServiceHttpPost">
+    <http:binding verb="POST" />
+    <operation name="getOffers">
+      <http:operation location="/getOffers" />
+      <input>
+        <mime:content part="" type="application/x-www-form-urlencoded" />
+      </input>
+      <output>
+        <mime:mimeXml part="Body" />
+      </output>
+    </operation>
+    <operation name="getPeople">
+      <http:operation location="/getPeople" />
+      <input>
+        <mime:content part="" type="application/x-www-form-urlencoded" />
+      </input>
+      <output>
+        <mime:mimeXml part="Body" />
+      </output>
+    </operation>
+  </binding>
+  <service name="Service">
+    <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Get A Job WebService</wsdl:documentation>
+    <port name="ServiceSoap" binding="s0:ServiceSoap">
+      <soap:address location="http://localhost:8080/Service.asmx" />
+    </port>
+    <port name="ServiceSoap12" binding="s0:ServiceSoap12">
+      <soap12:address location="http://localhost:8080/Service.asmx" />
+    </port>
+    <port name="ServiceHttpGet" binding="s0:ServiceHttpGet">
+      <http:address location="http://localhost:8080/Service.asmx" />
+    </port>
+    <port name="ServiceHttpPost" binding="s0:ServiceHttpPost">
+      <http:address location="http://localhost:8080/Service.asmx" />
+    </port>
+  </service>
+</definitions>
